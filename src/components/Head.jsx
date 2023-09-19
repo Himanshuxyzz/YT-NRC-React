@@ -1,20 +1,30 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { toggleMenu } from "../utils/appLevelData";
 
 const Head = () => {
+  // for dispatching an action
+  const dispatch = useDispatch();
+
+  const toggleMenuHandler = () => {
+    dispatch(toggleMenu());
+  };
   return (
     <div className="w-full max-h-[70px] grid justify-between items-center grid-flow-col p-4 mb-4 backdrop-blur-md bg-opacity-50">
       <div className="flex items-center gap-6 col-span-1">
         <img
-          className="w-10 h-10"
+          className="w-10 h-10 cursor-pointer"
           src="https://vectorified.com/images/hamburger-menu-icon-svg-7.png"
           alt="hamburger menu"
+          onClick={() => toggleMenuHandler()}
         />
-
-        <img
-          className="w-32 h-7"
-          src="https://en.wikifur.com/w/images/9/9c/YouTube_logo.png"
-          alt="brand logo"
-        />
+        <a href="/">
+          <img
+            className="w-32 h-7"
+            src="https://en.wikifur.com/w/images/9/9c/YouTube_logo.png"
+            alt="brand logo"
+          />
+        </a>
       </div>
 
       <div className="flex col-span-4 ">
