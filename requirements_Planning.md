@@ -22,3 +22,5 @@
 **Ask can we do google search or not ? practice hard so that you dont need google search during interview**
 
 **spending next 5 mins in planning how your content and data layer will go , how will structure your component and other low level things or this is also called low level design this is required to be both on same page interviewer or candidate for e.g -> in youtube clone there is a sidebar which opens when click on hamburger menu or also there is a search componenet also filter buttons and video cards on clicking on any video card it will open video page in which there are subscribe, suggestion and comment or like dislike features every damnn little thing we have to discuss and be descriptive about every damnn thing you say like what it will be going to do**
+
+**Focus on functionality rather than style ask, what interviewer wants**
