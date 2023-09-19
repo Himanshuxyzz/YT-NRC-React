@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 const MenuItems = [
   {
@@ -27,8 +28,12 @@ const MenuItems = [
 ];
 
 const SideMenuItems = ({ data }) => {
+  const isMenuOpen = useSelector((store) => store.app.isMenuOpen);
+
+  // early return pattern
+  if (!isMenuOpen) return null;
   return (
-    <div className="border-0 border-b-2 border-b-gray-500 p-2">
+    <div className="border-0 border-b-2 border-b-gray-500 p-2 transition ease-in-out">
       {data.heading && (
         <h1 className="font-bold text-2xl pl-2">{data.heading}</h1>
       )}

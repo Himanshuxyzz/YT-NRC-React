@@ -1,7 +1,32 @@
 import React from "react";
+import Button from "./Button";
+
+const btnFilterItems = [
+  "All",
+  "Shark Tank",
+  "Music",
+  "Tarak Mehta Ka Oolta Chasma",
+  "Cooking Shows",
+  "Live",
+  "Arijit Singh",
+  "Comdey Club",
+  "Lofi",
+  "Apple",
+  "Computer Science",
+  "Indian Pop Music",
+  // "Movie Musicals",
+  // "Bhajan Music",
+  // "News",
+];
 
 const ButtonList = () => {
-  return <div>ButtonList</div>;
+  return (
+    <div className="p-4 border flex gap-3">
+      {btnFilterItems?.map((item) => (
+        <Button name={item} />
+      ))}
+    </div>
+  );
 };
 
 export default ButtonList;
