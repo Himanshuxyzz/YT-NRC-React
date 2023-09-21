@@ -40,7 +40,9 @@ const SideMenuItems = ({ data }) => {
       <ul className="px-4  font-medium text-1xl space-y-2">
         {data?.items?.map((item) => {
           return (
-            <li className="hover:bg-gray-400 px-5 py-3 rounded-lg">{item}</li>
+            <li className="hover:bg-gray-400 px-5 py-3 rounded-lg" key={item}>
+              {item}
+            </li>
           );
         })}
       </ul>
@@ -50,7 +52,7 @@ const SideMenuItems = ({ data }) => {
 
 const Sidebar = () => {
   return (
-    <div className="border border-black space-y-4 grid-cols-1 max-w-[400px] overflow-scroll">
+    <div className="border border-black space-y-4 grid-cols-1 min-w-[220px] max-w-[220px] overflow-scroll">
       <SideMenuItems data={MenuItems[0]} />
       <SideMenuItems data={MenuItems[1]} />
       <SideMenuItems data={MenuItems[2]} />

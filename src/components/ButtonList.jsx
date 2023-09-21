@@ -25,7 +25,7 @@ const ButtonList = () => {
   return (
     <div className="p-4 border flex gap-3">
       {btnFilterItems?.map((item) => (
-        <Button name={item} />
+        <Button key={item} name={item} />
       ))}
     </div>
   );
