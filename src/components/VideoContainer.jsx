@@ -29,7 +29,7 @@ const VideoContainer = () => {
   // };
 
   return (
-    <div className="p-4 flex flex-wrap gap-3">
+    <div className="p-4 flex flex-wrap gap-2">
       {videos &&
         videos?.map((video) => <VideoCard key={video.id} data={video} />)}
     </div>
