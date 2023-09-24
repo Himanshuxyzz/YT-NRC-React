@@ -52,7 +52,7 @@ const SideMenuItems = ({ data }) => {
 
 const Sidebar = () => {
   return (
-    <div className="border border-black space-y-4 grid-cols-1 min-w-[220px] max-w-[220px] overflow-scroll">
+    <div className="space-y-4 grid-cols-1 min-w-[220px] max-w-[220px] overflow-scroll">
       <SideMenuItems data={MenuItems[0]} />
       <SideMenuItems data={MenuItems[1]} />
       <SideMenuItems data={MenuItems[2]} />
