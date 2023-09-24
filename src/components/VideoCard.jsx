@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { formatViewCount, getMonthsAgo } from "../utils/helpers";
+import { Link } from "react-router-dom";
 // 01:53:33
 const VideoCard = ({ data }) => {
   // if (!data) return <h1>Loading....</h1>;
@@ -8,7 +9,7 @@ const VideoCard = ({ data }) => {
   const { viewCount, likeCount } = statistics;
   return (
     data && (
-      <>
+      <Link to={`/watch?v=${id}`}>
         <div className="w-[350px] max-w-[360px] min-h-[320px] flex-grow">
           <div className="p-4 w-full h-full flex flex-col  gap-1">
             <img
@@ -28,7 +29,7 @@ const VideoCard = ({ data }) => {
             </div>
           </div>
         </div>
-      </>
+      </Link>
     )
   );
 };

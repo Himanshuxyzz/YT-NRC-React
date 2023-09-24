@@ -10,9 +10,12 @@ const appLevelDataSlice = createSlice({
     toggleMenu: (state) => {
       state.isMenuOpen = !state.isMenuOpen;
     },
+    closeMenu: (state) => {
+      state.isMenuOpen = false;
+    },
   },
 });
 
-export const { toggleMenu } = appLevelDataSlice.actions;
+export const { toggleMenu, closeMenu } = appLevelDataSlice.actions;
 
 export default appLevelDataSlice.reducer;

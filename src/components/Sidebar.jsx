@@ -1,14 +1,17 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const MenuItems = [
   {
     heading: false,
     items: ["Home", "Shorts", "Subscriptions"],
+    paths: ["/", "/shorts", "/subscriptions"],
   },
   {
     heading: false,
     items: ["Library", "History", "Watch later", "Liked videos"],
+    paths: ["/library", "/history", "/watchLater", "/Liked"],
   },
   {
     heading: "Explore",
@@ -24,6 +27,18 @@ const MenuItems = [
       "Learning",
       "Fashion & Beauty",
     ],
+    paths: [
+      "/trending",
+      "/shopping",
+      "/music",
+      "/movies",
+      "/live",
+      "/gaming",
+      "/news",
+      "/sports",
+      "/learning",
+      "/fashionBeauty",
+    ],
   },
 ];
 
@@ -38,10 +53,10 @@ const SideMenuItems = ({ data }) => {
         <h1 className="font-bold text-2xl pl-2">{data.heading}</h1>
       )}
       <ul className="px-4  font-medium text-1xl space-y-2">
-        {data?.items?.map((item) => {
+        {data?.items?.map((item, index) => {
           return (
             <li className="hover:bg-gray-400 px-5 py-3 rounded-lg" key={item}>
-              {item}
+              <Link to={`${data?.paths[index]}`}>{item}</Link>
             </li>
           );
         })}
