@@ -21,19 +21,16 @@ const WatchPage = () => {
 
   const getTitle = (data, vid) => {
     if (!data) return null;
-    // data?.map((item) => {
-    //   if (item?.id == vid) {
-    //     // console.log("found", item);
-    //   }
-    // });
+    const res = data.find((item) => item.id == vid);
+    return res?.snippet?.title;
 
-    return data?.find((item) => item.id == vid);
+    // return data?.find((item) => item.id == vid);
   };
 
-  getTitle(data, videoId);
+  console.log(getTitle(data, videoId));
   return (
     <div className="p-4">
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-4">
         <iframe
           width="1000"
           height="455"
@@ -44,7 +41,7 @@ const WatchPage = () => {
         ></iframe>
 
         <div className="">
-          <h2 className="font-bold text-2xl">{data && data[0]?.id}</h2>
+          <h2 className="font-bold text-3xl">{getTitle(data, videoId)}</h2>
         </div>
       </div>
     </div>
