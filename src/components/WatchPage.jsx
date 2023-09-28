@@ -27,7 +27,7 @@ const WatchPage = () => {
     // return data?.find((item) => item.id == vid);
   };
 
-  console.log(getTitle(data, videoId));
+//   console.log(getTitle(data, videoId));
   return (
     <div className="p-4">
       <div className="flex flex-col gap-4">
