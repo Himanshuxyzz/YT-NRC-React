@@ -1,8 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { toggleMenu } from "../utils/appLevelData";
+import { SEARCH_SUGGESTIONS_API } from "../utils/constants";
 
 const Head = () => {
+
+// 56:25 advanced yt clone - 2 from 39:34
+
+
+
   // search query
 
   const [searchQuery, setSearchQuery] = useState(" ");
@@ -10,15 +16,37 @@ const Head = () => {
   useEffect(() => {
     // make an api call after every key press
     // but if the difference between 2 api calls is < 200ms then decline api calls
+    // fetchSearch(searchQuery);
 
-    
-    // const fetchSearch = async (searchString) => {
-    //   const res = await fetch(`${SEARCH_SUGGESTIONS_API}${searchString}`);
-    //   const result = await res.json();
-    //   console.log(result);
-    // };
-    // fetchSearch("iphone");
+    const intervalId = setTimeout(() => {
+      fetchSearch(searchQuery);
+    }, 200);
+
+    return () => clearTimeout(intervalId);
   }, [searchQuery]);
+
+  /*
+   *
+   * key - i
+   * - render the component
+   * - useEffect();
+   * - start timer => make api calls after 200ms
+   *
+   * key - ip
+   * - destroy the component(useEffect return method)
+   * - re-render the component
+   * - useEffect()
+   * - start timer => make api calls after 200ms
+   *
+   * setTimeout(200) - is clearing on every re-rendering
+   */
+
+  const fetchSearch = async (searchString) => {
+    console.log(`Api call with query ${searchQuery}`)
+    const res = await fetch(`${SEARCH_SUGGESTIONS_API}${searchString}`);
+    const result = await res.json();
+    console.log(result[1]);
+  };
 
   // for dispatching an action
   const dispatch = useDispatch();
