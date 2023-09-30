@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { closeMenu } from "../utils/appLevelData";
 import { useParams, useSearchParams } from "react-router-dom";
 import getVideo from "../hooks/getVideo";
+import { SEARCH_SUGGESTIONS_API } from "../utils/constants";
 
 // 02:20:00
 
@@ -17,17 +18,12 @@ const WatchPage = () => {
   }, []);
 
   const data = getVideo();
-  //   console.log(data);
 
   const getTitle = (data, vid) => {
     if (!data) return null;
     const res = data.find((item) => item.id == vid);
     return res?.snippet?.title;
-
-    // return data?.find((item) => item.id == vid);
   };
-
-//   console.log(getTitle(data, videoId));
   return (
     <div className="p-4">
       <div className="flex flex-col gap-4">

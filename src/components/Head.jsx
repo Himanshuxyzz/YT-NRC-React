@@ -1,8 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { toggleMenu } from "../utils/appLevelData";
 
 const Head = () => {
+  // search query
+
+  const [searchQuery, setSearchQuery] = useState(" ");
+
+  useEffect(() => {
+    // make an api call after every key press
+    // but if the difference between 2 api calls is < 200ms then decline api calls
+
+    
+    // const fetchSearch = async (searchString) => {
+    //   const res = await fetch(`${SEARCH_SUGGESTIONS_API}${searchString}`);
+    //   const result = await res.json();
+    //   console.log(result);
+    // };
+    // fetchSearch("iphone");
+  }, [searchQuery]);
+
   // for dispatching an action
   const dispatch = useDispatch();
 
@@ -27,10 +44,12 @@ const Head = () => {
         </a>
       </div>
 
-      <div className="flex col-span-4 ">
+      <div className="flex col-span-4">
         <input
           className="border border-black font-semibold text-1xl outline-red-300 rounded-l-full w-full"
           type="text"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
         />
         <button className="border border-black py-2 px-4 rounded-r-full font-semibold bg-gray-200">
           <svg
