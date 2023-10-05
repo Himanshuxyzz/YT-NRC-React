@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toggleMenu } from "../utils/appLevelData";
 import { SEARCH_SUGGESTIONS_API } from "../utils/constants";
+import { cacheRestults } from "../utils/searchSlice";
 
 const Head = () => {
   // 56:25 advanced yt clone - 2 from 39:34
-  // 1:03:10 current
+  // 1:38:50 current
 
   // search query
 
@@ -13,13 +14,23 @@ const Head = () => {
   const [suggestions, setSuggestions] = useState([]);
   const [showSuggestionInView, setShowSuggestionInView] = useState(false);
 
+  const searchCache = useSelector((store) => store.search);
+  // for dispatching an action
+  const dispatch = useDispatch();
+
   useEffect(() => {
     // make an api call after every key press
     // but if the difference between 2 api calls is < 200ms then decline api calls
     // fetchSearch(searchQuery);
 
     const intervalId = setTimeout(() => {
-      fetchSearch(searchQuery);
+      // caching
+      if (searchCache[searchQuery]) {
+        setSuggestions(searchCache[searchQuery]);
+      } else {
+        fetchSearch(searchQuery);
+      }
+      // fetchSearch(searchQuery);
     }, 200);
 
     return () => clearTimeout(intervalId);
@@ -47,10 +58,14 @@ const Head = () => {
     const result = await res.json();
     // console.log(result[1]);
     setSuggestions(result[1]);
-  };
 
-  // for dispatching an action
-  const dispatch = useDispatch();
+    // update cache
+    dispatch(
+      cacheRestults({
+        [searchQuery]: result[1],
+      })
+    );
+  };
 
   const toggleMenuHandler = () => {
     dispatch(toggleMenu());
