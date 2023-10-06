@@ -4,6 +4,7 @@ import { closeMenu } from "../utils/appLevelData";
 import { useParams, useSearchParams } from "react-router-dom";
 import getVideo from "../hooks/getVideo";
 import { SEARCH_SUGGESTIONS_API } from "../utils/constants";
+import CommentsContainer from "./CommentsContainer";
 
 // 02:20:00
 
@@ -25,7 +26,7 @@ const WatchPage = () => {
     return res?.snippet?.title;
   };
   return (
-    <div className="p-4">
+    <div className="p-4 space-y-5">
       <div className="flex flex-col gap-4">
         <iframe
           width="1000"
@@ -40,6 +41,8 @@ const WatchPage = () => {
           <h2 className="font-bold text-3xl">{getTitle(data, videoId)}</h2>
         </div>
       </div>
+
+      <CommentsContainer />
     </div>
   );
 };
