@@ -26,4 +26,6 @@
 - Messaging app (Whatsapp,Facebook messenger) :- (web socket).
 - Cricbuzz or live commentory applications (need some delay in order to get real time updates coz every event in live game happens after a delay) :- (Api Polling).
 
-//29:38
+**Why youtube chat is performant and doesn't slow down page ?**
+
+because after certain number of messages reached then it starts deleting the messages from top we can see this action after cetain messages you will not able to find earlier messages from top 
