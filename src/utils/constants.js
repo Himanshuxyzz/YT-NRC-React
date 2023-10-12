@@ -7,3 +7,4 @@ export const SEARCH_AUTO_COMPLETE_API = `http://suggestqueries.google.com/comple
 export const corsFix = "https://corsproxy.io/?";
 
 export const SEARCH_SUGGESTIONS_API = `${corsFix}${SEARCH_AUTO_COMPLETE_API}`;
+

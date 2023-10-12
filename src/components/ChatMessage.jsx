@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 const ChatMessage = ({ name, message }) => {
+
   return (
     <div className="p-2 bg-gray-200 flex items-center gap-4">
       <img
@@ -8,7 +9,7 @@ const ChatMessage = ({ name, message }) => {
         src="https://www.pngkit.com/png/full/115-1150342_user-avatar-icon-iconos-de-mujeres-a-color.png"
         alt="user icon"
       />
- 
+
       <span className="text-gray-500">{name}</span>
 
       <span className="text-sm font-semibold">{message}</span>
