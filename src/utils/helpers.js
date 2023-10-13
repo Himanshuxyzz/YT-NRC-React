@@ -20,8 +20,8 @@ export function formatViewCount(count) {
 
 // Array of random names
 
-const names = {
-  data: [
+const data = {
+  names: [
     "Emma",
     "Isabella",
     "Emily",
@@ -1023,6 +1023,39 @@ const names = {
     "Sloane",
     "Elianna",
   ],
+  messages: [
+    "I'm not lazy, I'm just conserving energy.",
+    "I don't need a weapon. My friends are my power!",
+    "I'm not short, I'm fun-sized!",
+    "I'm not clumsy, I'm just in a constant state of adventure.",
+    "I don't snore, I dream of being a motorcycle.",
+    "I may be a potato, but I'm a fabulous potato!",
+    "I'm not lost, I'm just taking the scenic route.",
+    "I don't have a bad sense of direction, the GPS is just jealous of me.",
+    "I'm not addicted to anime, I'm committed to it.",
+    "I don't procrastinate, I just wait for the right moment.",
+    "I'm not a superhero, but I can eat like one!",
+    "I don't make mistakes, I have unexpected learning opportunities.",
+    "I'm not clumsy, I'm just practicing my acrobatics.",
+    "I don't need luck, I have anime on my side.",
+    "I'm not weird, I'm just a limited edition.",
+    "I don't snore, I'm just a sleep beatboxer.",
+    "I'm not a couch potato, I'm a couch anime connoisseur.",
+    "I don't have a sweet tooth, I have a sweet fang.",
+    "I'm not late, I'm just on anime time.",
+    "I don't need caffeine, anime gives me energy.",
+    "I'm not lost, I'm just exploring alternative routes.",
+    "I don't have a bad memory, I just have selective recall.",
+    "I'm not a picky eater, I just have refined taste buds.",
+    "I don't need a therapist, I have anime characters to relate to.",
+    "I'm not a night owl, I'm a nocturnal anime watcher.",
+    "I don't need a gym, I get my exercise from binge-watching anime.",
+    "I'm not a drama queen, I'm a melodramatic anime protagonist.",
+    "I don't need a vacation, I have anime to escape to.",
+    "I'm not a hoarder, I'm an anime merchandise collector.",
+    "I don't need a reality check, I have anime to keep me grounded.",
+    "I'm not antisocial, I'm just selectively social with fellow anime fans.",
+  ],
 };
 
 /**
@@ -1030,15 +1063,19 @@ const names = {
  * @param {Object} names - Object of names
  * @returns {string} - Randomly generated name
  */
-export function generateRandomName() {
+export function generateRandom() {
   // Get a random index within the range of the array length
-  const randomIndex = Math.floor(Math.random() * names.data.length);
+  const randomIndex = Math.floor(Math.random() * data.messages.length);
 
   // Retrieve the name at the random index
-  const randomName = names.data[randomIndex];
+  const randomName = data.names[randomIndex];
+  const randomMsg = data.messages[randomIndex];
 
   // Return the randomly generated name
-  return randomName;
+  return {
+    randomName,
+    randomMsg,
+  };
 }
 
 // Generate a random name using the generateRandomName function

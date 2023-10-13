@@ -3,13 +3,17 @@ import ChatMessage from "./ChatMessage";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addMessage } from "../utils/chatSlice";
-import { generateRandomName } from "../utils/helpers";
+import { generateRandom } from "../utils/helpers";
 
-// 01:15:11
+// 01:21:00
 
 const LiveChat = () => {
   const dispatch = useDispatch();
   const ChatMessages = useSelector((store) => store.chat.messages);
+
+  // console.log(generateRandom());
+
+  // const { randomName, randomMsg } = generateRandom();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -17,8 +21,8 @@ const LiveChat = () => {
       dispatch(
         addMessage({
           // name: "Himanshu",
-          name: generateRandomName(),
-          message: "Heyy!!!!!👋",
+          name: generateRandom(),
+          message: generateRandom(),
         })
       );
     }, 2000);
@@ -33,8 +37,8 @@ const LiveChat = () => {
           return (
             <ChatMessage
               key={index}
-              name={message.name}
-              message={message.message}
+              name={message.name.randomName}
+              message={message.message.randomMsg}
             />
           );
         })}
