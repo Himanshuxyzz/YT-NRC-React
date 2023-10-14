@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { LiveChatMsgsBucket } from "./constants";
 
 const chatSlice = createSlice({
   name: "chat",
@@ -7,7 +8,10 @@ const chatSlice = createSlice({
   },
   reducers: {
     addMessage: (state, action) => {
-      state.messages.push(action.payload);
+      state.messages.splice(LiveChatMsgsBucket, 1);
+      state.messages.unshift(action.payload);
+
+      // state.messages.unshift(action.payload);
     },
   },
 });

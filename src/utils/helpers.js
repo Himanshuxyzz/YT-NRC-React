@@ -1063,23 +1063,29 @@ const data = {
  * @param {Object} names - Object of names
  * @returns {string} - Randomly generated name
  */
-export function generateRandom() {
+export function generateRandomName() {
   // Get a random index within the range of the array length
-  const randomIndex = Math.floor(Math.random() * data.messages.length);
+  const randomIndex = Math.floor(Math.random() * data.names.length);
 
   // Retrieve the name at the random index
-  const randomName = data.names[randomIndex];
-  const randomMsg = data.messages[randomIndex];
+  const name = data.names[randomIndex];
 
   // Return the randomly generated name
-  return {
-    randomName,
-    randomMsg,
-  };
+  return name;
 }
 
 // Generate a random name using the generateRandomName function
 // const randomName = generateRandomName(names);
+export function generateRandomMsg() {
+  // Get a random index within the range of the array length
+  const randomIndex = Math.floor(Math.random() * data.messages.length);
+
+  // Retrieve the name at the random index
+  const message = data.messages[randomIndex];
+
+  // Return the randomly generated name
+  return message;
+}
 
 // Output the randomly generated name
 // console.log("Random Name:", randomName);
